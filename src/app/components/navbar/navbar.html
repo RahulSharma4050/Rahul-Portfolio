@@ -1,0 +1,28 @@
+<nav [class.scrolled]="isScrolled" [class.menu-open]="isMenuOpen">
+  <div class="container navbar-content">
+    <div class="logo">
+      <span class="highlight">Rahul</span> Sharma
+    </div>
+
+    <!-- Desktop Menu -->
+    <ul class="desktop-menu">
+      <li *ngFor="let item of navItems">
+        <a (click)="scrollToSection(item.section)">{{ item.name }}</a>
+      </li>
+    </ul>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-toggle" (click)="toggleMenu()" aria-label="Toggle menu">
+      <lucide-icon [name]="isMenuOpen ? X : Menu"></lucide-icon>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <div class="mobile-menu" [class.open]="isMenuOpen">
+    <ul>
+      <li *ngFor="let item of navItems">
+        <a (click)="scrollToSection(item.section)">{{ item.name }}</a>
+      </li>
+    </ul>
+  </div>
+</nav>

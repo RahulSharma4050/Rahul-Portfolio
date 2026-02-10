@@ -1,0 +1,58 @@
+<section id="projects" class="projects-section">
+    <div class="container">
+        <h2 class="section-title">
+            <lucide-icon [name]="Folder" class="icon"></lucide-icon> Featured Projects
+        </h2>
+
+        <!-- Featured Projects (Live) -->
+        <div class="featured-grid">
+            <div class="featured-card" *ngFor="let project of featuredProjects">
+                <div class="project-image" appScrollAnimation="animate-slide-in-right">
+                    <!-- Placeholder if no image provided, or use a gradient -->
+                    <div class="image-placeholder" [style.background-image]="'url(' + project.imageUrl + ')'"
+                        *ngIf="project.imageUrl"></div>
+                    <div class="image-placeholder gradient-placeholder" *ngIf="!project.imageUrl"></div>
+                </div>
+                <div class="project-content" appScrollAnimation="animate-pop-in">
+                    <span class="category">Featured Project</span>
+                    <h3 class="title">{{ project.title }}</h3>
+                    <div class="description-box">
+                        <p>{{ project.description[0] }}</p>
+                    </div>
+                    <ul class="tech-list">
+                        <li *ngFor="let tech of project.techStack">{{ tech }}</li>
+                    </ul>
+                    <div class="links">
+                        <a [href]="project.github" target="_blank" *ngIf="project.github" aria-label="GitHub Link">
+                            <lucide-icon [name]="Github"></lucide-icon>
+                        </a>
+                        <a [href]="project.link" target="_blank" *ngIf="project.link" aria-label="External Link">
+                            <lucide-icon [name]="ExternalLink"></lucide-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Other Projects (Government/Internal) -->
+        <h3 class="subsection-title" *ngIf="otherProjects.length > 0">Professional Work</h3>
+        <div class="projects-grid">
+            <div class="project-card card" *ngFor="let project of otherProjects; let i = index"
+                appScrollAnimation="animate-fade-in-up" [style.animation-delay]="(i * 0.15) + 's'">
+                <div class="card-header">
+                    <lucide-icon [name]="Folder" class="folder-icon"></lucide-icon>
+                    <div class="links">
+                        <a [href]="project.link" target="_blank" *ngIf="project.link">
+                            <lucide-icon [name]="ExternalLink"></lucide-icon>
+                        </a>
+                    </div>
+                </div>
+                <h4 class="title">{{ project.title }}</h4>
+                <p class="description">{{ project.description[0] }}</p>
+                <ul class="tech-list">
+                    <li *ngFor="let tech of project.techStack">{{ tech }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

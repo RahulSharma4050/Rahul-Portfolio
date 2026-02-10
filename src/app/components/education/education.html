@@ -1,0 +1,38 @@
+<section id="education" class="education-section">
+    <div class="container">
+        <h2 class="section-title">
+            <lucide-icon [name]="GraduationCap" class="icon"></lucide-icon> Education & Achievements
+        </h2>
+
+        <div class="education-grid">
+            <!-- Schools -->
+            <div class="education-card card" *ngFor="let edu of education; let i = index"
+                appScrollAnimation="animate-fade-in-up" [style.animation-delay]="(i * 0.15) + 's'">
+                <h3 class="degree">{{ edu.degree }}</h3>
+                <p class="institution">{{ edu.institution }}</p>
+                <div class="meta">
+                    <div class="meta-item">
+                        <lucide-icon [name]="Calendar" class="icon-sm"></lucide-icon>
+                        <span>{{ edu.year }}</span>
+                    </div>
+                    <div class="meta-item">
+                        <lucide-icon [name]="MapPin" class="icon-sm"></lucide-icon>
+                        <span>{{ edu.location }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Achievements -->
+        <div class="achievements-card card mt-4" appScrollAnimation="animate-fade-in-up"
+            [style.animation-delay]="'0.5s'">
+            <h3 class="subsection-title">Key Achievements</h3>
+            <ul class="achievements-list">
+                <li *ngFor="let achievement of achievements; let i = index" appScrollAnimation="animate-fade-in-up"
+                    [style.animation-delay]="(0.6 + i * 0.15) + 's'">
+                    {{ achievement }}
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>

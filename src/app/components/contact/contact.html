@@ -1,0 +1,81 @@
+<section id="contact" class="contact-section">
+    <div class="container">
+        <div class="contact-grid">
+            <!-- Left Side: Profile & Orbiting Icons -->
+            <div class="profile-side">
+                <div class="profile-container">
+                    <div class="orbit">
+                        <div class="orbit-item github">
+                            <a [href]="resumeData.github" target="_blank" aria-label="GitHub">
+                                <lucide-icon [name]="Github"></lucide-icon>
+                            </a>
+                        </div>
+                        <div class="orbit-item linkedin">
+                            <a [href]="resumeData.linkedin" target="_blank" aria-label="LinkedIn">
+                                <lucide-icon [name]="Linkedin"></lucide-icon>
+                            </a>
+                        </div>
+                        <div class="orbit-item leetcode">
+                            <a [href]="resumeData.leetcode" target="_blank" aria-label="LeetCode">
+                                <lucide-icon [name]="LeetCode"></lucide-icon>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="image-wrapper">
+                        <img [src]="resumeData.profileImage" alt="Profile" class="profile-img">
+                    </div>
+                </div>
+                <div class="contact-info-footer">
+                    <h3 class="contact-them">CONTACT ME</h3>
+                    <div class="contact-email-box">
+                        <span class="email-text">{{ resumeData.email }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Contact Form -->
+            <div class="form-side">
+                <h2 class="form-title">HAVE ANY QUERY? WRITE TO US</h2>
+                <form (ngSubmit)="sendEmail()" #contactForm="ngForm" class="premium-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">YOUR NAME</label>
+                            <input type="text" id="name" name="name" [(ngModel)]="name" required placeholder="Name"
+                                class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">YOUR EMAIL</label>
+                            <input type="email" id="email" name="email" [(ngModel)]="email" required placeholder="Email"
+                                class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">SUBJECT</label>
+                        <input type="text" id="subject" name="subject" [(ngModel)]="subject" required
+                            placeholder="Subject" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">MESSAGE</label>
+                        <textarea id="message" name="message" [(ngModel)]="message" required placeholder="Message"
+                            rows="4" class="form-control"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit" [disabled]="isLoading">
+                            <span *ngIf="!isLoading">SUBMIT</span>
+                            <span *ngIf="isLoading">SENDING...</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p class="copyright">© {{ currentYear }} {{ resumeData.name | uppercase }}. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+</section>

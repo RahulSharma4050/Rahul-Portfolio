@@ -1,0 +1,195 @@
+@use "sass:color";
+
+/* Global Variables */
+:root {
+  --bg-color: #0d1117;
+  --text-color: #e6edf3;
+  --primary-color: #58a6ff;
+  --secondary-color: #8b949e;
+  --accent-color: #238636;
+  --card-bg: #161b22;
+  --card-border: #30363d;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Reset & Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover {
+    color: color.adjust(#58a6ff, $lightness: 10%);
+  }
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-secondary {
+  color: var(--secondary-color);
+}
+
+.mt-1 {
+  margin-top: 0.5rem;
+}
+
+.mt-2 {
+  margin-top: 1rem;
+}
+
+.mt-3 {
+  margin-top: 1.5rem;
+}
+
+.mt-4 {
+  margin-top: 2rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 1rem;
+}
+
+.mb-3 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 2rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-1 {
+  gap: 0.5rem;
+}
+
+.gap-2 {
+  gap: 1rem;
+}
+
+.gap-4 {
+  gap: 2rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  border: 1px solid transparent;
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+
+    &:hover {
+      background-color: color.adjust(#58a6ff, $lightness: -10%);
+    }
+  }
+
+  &-outline {
+    background-color: transparent;
+    border-color: var(--secondary-color);
+    color: var(--text-color);
+
+    &:hover {
+      background-color: var(--card-bg);
+      border-color: var(--text-color);
+    }
+  }
+}
+
+/* Card */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  padding: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Section styling */
+section {
+  padding: 4rem 0;
+}

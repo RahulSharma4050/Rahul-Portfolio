@@ -47,7 +47,7 @@ export const RESUME_DATA: ResumeData = {
             imageUrl: 'assets/Works/sinngaProject.png'
         },
         {
-            title: 'Diecast',
+            title: 'Diecast Sphere',
             role: 'Developer',
             duration: 'Live',
             category: 'Live',
